@@ -77,19 +77,17 @@ function simplexDantzig(c, A, b, n, m) {
     let minRatio = Infinity;
 
     // Boucle à travers les indices non de base
-    for (let i = 0; i < nonBasic.length; i++) {
-
+    for (const element of nonBasic) {
       // Si la valeur de A[leaveIndex][nonBasic[i]] est supérieure à 0
-      if (A[leaveIndex][nonBasic[i]] > 0) {
-
+      if (A[leaveIndex][element] > 0) {
         // Calculer le ratio entre c[nonBasic[i]] et A[leaveIndex][nonBasic[i]]
-        let ratio = c[nonBasic[i]] / A[leaveIndex][nonBasic[i]];
+        let ratio = c[element] / A[leaveIndex][element];
 
         // Si le ratio est inférieur à la valeur minimale du ratio,
         // Mettre à jour la valeur minimale du ratio et l'index d'entrée
         if (ratio < minRatio) {
           minRatio = ratio;
-          enterIndex = nonBasic[i];
+          enterIndex = element;
         }
       }
     }
@@ -109,7 +107,6 @@ function simplexDantzig(c, A, b, n, m) {
 
     // Boucle à travers toutes les lignes du tableau A
     for (let i = 0; i < m; i++) {
-
       // Si i n'est pas égal à leaveIndex,
       // Soustraire la valeur de theta multipliée par A[i][enterIndex] de b[i]
       // Soustraire la valeur de theta multipliée par y[leaveIndex] multiplié par A[i][enterIndex] de c[i]
@@ -127,7 +124,6 @@ function simplexDantzig(c, A, b, n, m) {
 
     // Boucle à travers toutes les colonnes du tableau A
     for (let i = 0; i < n; i++) {
-
       // Si i n'est pas égal à enterIndex,
       // Diviser A[leaveIndex][i] par A[leaveIndex][enterIndex]
       if (i !== enterIndex) {

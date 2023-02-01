@@ -1,41 +1,15 @@
 # Quasar App (dantzig-simplex)
 
-A Quasar Project
+## Pour le code de la fonction il se trouve dans ..\Dantzig-Simplex\src\router\simplexDantzig.js
 
-## Install the dependencies
+## Pour la complexité de l'algorithme : O(m^2n)
+
+## Install les dépendences
 ```bash
-yarn
-# or
 npm install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+### Lancer l'app
 ```bash
-quasar dev
+npm run dev
 ```
-
-
-### Lint the files
-```bash
-yarn lint
-# or
-npm run lint
-```
-
-
-### Format the files
-```bash
-yarn format
-# or
-npm run format
-```
-
-
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).

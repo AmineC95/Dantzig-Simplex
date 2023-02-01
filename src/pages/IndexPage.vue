@@ -1,6 +1,17 @@
 <template>
   <div>
     <q-page style="padding: 50px;">
+      <h5 style="text-align: center;">Pour la complexité de l'algorithme : O(m^2n)</h5>
+      <q-card>
+        <p style="text-align: center;">
+        La complexité algorithmique est de <b>O(m^2n)</b>, où <b>m</b> est le nombre de contraintes et <b>n</b> est le nombre de variables.
+        <br>
+        Cela est dû au fait qu'il y a une boucle while infinie qui contient une boucle pour trouver le minimum de <b>d</b> et une autre pour trouver l'index d'entrée,
+        <br>
+         ainsi qu'une boucle pour mettre à jour toutes les lignes de la matrice <b>A</b>.
+      </p>
+      </q-card>
+      
       <q-form @submit.prevent="runSimplex">
         <q-input
           v-model="c"
@@ -9,7 +20,7 @@
         />
         <q-input
           v-model="A"
-          label="Matrice de contraintes (séparé par des ','chaque ligne séparée par des ';')"
+          label="Matrice de contraintes (séparé par des ' , ' chaque ligne séparée par des ' ; ')"
           type="text"
         />
         <q-input
@@ -29,16 +40,16 @@
         />
         <q-btn type="submit" color="primary">Exécuter simplexe</q-btn>
       </q-form>
-    </q-page>
 
-    <p v-if="result" style="padding: 50px;">Le résultat de l'algorithme est: {{ result }}</p>
-    
-    <div v-if="results.length" style="padding: 50px;">
-      <h3>Résultats:</h3>
-      <ul>
-        <li v-for="(result, index) in results" :key="index">{{ result }}</li>
-      </ul>
-    </div>
+      <p v-if="result" style="padding: 50px;">Le résultat de l'algorithme est: {{ result }}</p>
+      <div v-if="results.length" style="padding: 50px;">
+        <h3>Résultats:</h3>
+        <ul>
+          <li v-for="(result, index) in results" :key="index">{{ result }}</li>
+        </ul>
+      </div>
+
+    </q-page>
   </div>
 </template>
 
